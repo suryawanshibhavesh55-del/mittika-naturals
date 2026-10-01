@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog &amp; Journal | Mittika Naturals - Educational Skincare Rituals</title>
+  <meta name="description" content="Explore thoughtful editorial guides on earth-derived clays, traditional Indian beauty rituals, botanical formulation, and gentle skincare practices.">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .blog-modal {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(24, 18, 14, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-smooth);
+    }
+    .blog-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .blog-modal-content {
+      background: #FFFFFF;
+      max-width: 780px;
+      max-height: 85vh;
+      overflow-y: auto;
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 5vw, 3.5rem);
+      position: relative;
+      box-shadow: var(--shadow-modal);
+    }
+    .blog-modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      width: 36px;
+      height: 36px;
+      background: var(--bg-sand);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--earth-deep);
+      cursor: pointer;
+      border: 1px solid var(--earth-border);
+      transition: all var(--transition-fast);
+      margin-bottom: 1rem;
+    }
+    .blog-modal-close:hover {
+      background: var(--terracotta);
+      color: #FFFFFF;
+    }
+    .blog-body-text p {
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--earth-body);
+    }
+    .blog-body-text h3 {
+      font-size: 1.35rem;
+      margin: 1.75rem 0 0.75rem;
+      color: var(--earth-deep);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <span>Pure Clays &amp; Botanical Herbs</span>
+      </div>
+      <div class="top-bar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>MRP ₹349 | Special Launch Price ₹199</span>
+      </div>
+      <div class="top-bar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <span>Made In India • Cruelty Free</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Main Navigation">
+        <a href="../index.html" class="brand-logo-link" aria-label="Mittika Naturals Home">
+          <img src="../assets/images/logo.png" alt="Mittika Naturals Logo" class="brand-logo" width="56" height="56">
+          <div class="brand-logo-text">
+            <span class="brand-name">mittika</span>
+            <span class="brand-tagline">NATURALS &trade;</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="../index.html" class="nav-link">Home</a></li>
+          <li><a href="../about/index.html" class="nav-link">About</a></li>
+          <li><a href="../product/index.html" class="nav-link">Our Product</a></li>
+          <li><a href="../ingredients/index.html" class="nav-link">Ingredients</a></li>
+          <li><a href="../how-to-use/index.html" class="nav-link">How to Use</a></li>
+          <li><a href="./index.html" class="nav-link active">Blog</a></li>
+          <li><a href="../faq/index.html" class="nav-link">FAQ</a></li>
+          <li><a href="../contact/index.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <a href="https://amzn.in/d/03YhWoWp" target="_blank" rel="noopener noreferrer" class="btn btn-amazon btn-sm">
+            BUY ON AMAZON
+          </a>
+        </div>
+
+        <button type="button" class="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-links">
+      <a href="../index.html" class="mobile-nav-link">Home <span>&rarr;</span></a>
+      <a href="../about/index.html" class="mobile-nav-link">About Us <span>&rarr;</span></a>
+      <a href="../product/index.html" class="mobile-nav-link">Our Product <span>&rarr;</span></a>
+      <a href="../ingredients/index.html" class="mobile-nav-link">Ingredients <span>&rarr;</span></a>
+      <a href="../how-to-use/index.html" class="mobile-nav-link">How to Use <span>&rarr;</span></a>
+      <a href="./index.html" class="mobile-nav-link active">Blog &amp; Journal <span>&rarr;</span></a>
+      <a href="../faq/index.html" class="mobile-nav-link">FAQ <span>&rarr;</span></a>
+      <a href="../contact/index.html" class="mobile-nav-link">Contact Us <span>&rarr;</span></a>
+    </div>
+    <div class="mobile-drawer-cta">
+      <a href="https://amzn.in/d/03YhWoWp" target="_blank" rel="noopener noreferrer" class="btn btn-amazon">BUY ON AMAZON</a>
+      <a href="https://wa.me/916239407139?text=Hello%20Mittika%20Naturals%2C%20I%20enjoyed%20reading%20your%20journal%20articles." target="_blank" rel="noopener noreferrer" class="btn btn-secondary">CHAT ON WHATSAPP</a>
+    </div>
+  </aside>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <div class="breadcrumb-list">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Blog &amp; Journal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-subtitle">Skincare Knowledge &amp; Rituals</span>
+      <h1 class="page-hero-title serif-heading">The Mittika Journal</h1>
+      <p class="page-hero-desc">
+        Explore thoughtful, educational articles on traditional clays, mineral properties, botanical formulation, and the philosophy of calm skincare rituals.
+      </p>
+    </div>
+  </section>
+
+  <!-- Journal Grid -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="blog-grid" style="margin-top: 0;">
+        
+        <!-- Article 1 -->
+        <article class="blog-card" id="post-1">
+          <div class="blog-meta">
+            <span class="blog-tag">Rituals</span>
+            <span class="blog-time">4 min read</span>
+          </div>
+          <h2 class="blog-title">Why Clay Masks Are a Timeless Skincare Ritual</h2>
+          <p class="blog-excerpt">
+            From ancient Indian beauty customs to contemporary skincare regimes, mineral-rich clays have offered a gentle, purifying connection to the earth for generations.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="1">Read Article &rarr;</button>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="blog-card" id="post-2">
+          <div class="blog-meta">
+            <span class="blog-tag">Spotlight</span>
+            <span class="blog-time">5 min read</span>
+          </div>
+          <h2 class="blog-title">Multani Mitti: Understanding India's Traditional Clay</h2>
+          <p class="blog-excerpt">
+            Explore Fuller's Earth and why this naturally occurring sedimentary clay remains an enduring staple in Indian households for absorbing excess surface oil.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="2">Read Article &rarr;</button>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-card" id="post-3">
+          <div class="blog-meta">
+            <span class="blog-tag">Mineral Science</span>
+            <span class="blog-time">4 min read</span>
+          </div>
+          <h2 class="blog-title">Kaolin Clay Explained</h2>
+          <p class="blog-excerpt">
+            Characterized by its fine particle structure and neutral pH compatibility, Kaolin provides gentle smoothing without excessively stripping moisture.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="3">Read Article &rarr;</button>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="blog-card" id="post-4">
+          <div class="blog-meta">
+            <span class="blog-tag">Mineral Science</span>
+            <span class="blog-time">4 min read</span>
+          </div>
+          <h2 class="blog-title">French Green Clay Explained</h2>
+          <p class="blog-excerpt">
+            Naturally green due to iron oxide and ancient decomposed kelp and algae, French Green Clay is revered for deep clarifying pore care.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="4">Read Article &rarr;</button>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="blog-card" id="post-5">
+          <div class="blog-meta">
+            <span class="blog-tag">Texture &amp; Glow</span>
+            <span class="blog-time">3 min read</span>
+          </div>
+          <h2 class="blog-title">Rose Clay in Modern Skincare</h2>
+          <p class="blog-excerpt">
+            A delicately balanced clay known for micro-exfoliation, promoting a refined surface texture and restoring natural radiance to dull skin.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="5">Read Article &rarr;</button>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="blog-card" id="post-6">
+          <div class="blog-meta">
+            <span class="blog-tag">Formulation</span>
+            <span class="blog-time">4 min read</span>
+          </div>
+          <h2 class="blog-title">Why Combine Different Clays in One Face Mask?</h2>
+          <p class="blog-excerpt">
+            Single clays can sometimes feel either too heavy or too mild. Discover why a multi-clay formulation creates an optimal balance for regular use.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="6">Read Article &rarr;</button>
+        </article>
+
+        <!-- Article 7 -->
+        <article class="blog-card" id="post-7">
+          <div class="blog-meta">
+            <span class="blog-tag">Guide</span>
+            <span class="blog-time">4 min read</span>
+          </div>
+          <h2 class="blog-title">How Often Should You Use a Clay Mask?</h2>
+          <p class="blog-excerpt">
+            Finding the right cadence for your skin type — from weekly deep-cleansing for oily skin to gentle fortnightly rituals for sensitive skin.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="7">Read Article &rarr;</button>
+        </article>
+
+        <!-- Article 8 -->
+        <article class="blog-card" id="post-8">
+          <div class="blog-meta">
+            <span class="blog-tag">Botanicals</span>
+            <span class="blog-time">5 min read</span>
+          </div>
+          <h2 class="blog-title">Understanding Botanical Ingredients in Skincare</h2>
+          <p class="blog-excerpt">
+            How neem, tulsi, turmeric, licorice, sandalwood, and colloidal oatmeal work in gentle harmony alongside mineral clays.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="8">Read Article &rarr;</button>
+        </article>
+
+        <!-- Article 9 -->
+        <article class="blog-card" id="post-9">
+          <div class="blog-meta">
+            <span class="blog-tag">Routine</span>
+            <span class="blog-time">3 min read</span>
+          </div>
+          <h2 class="blog-title">A Simple Natural Skincare Routine</h2>
+          <p class="blog-excerpt">
+            Skincare doesn't need to be 10 complicated steps. A mindful cleanse, fresh clay ritual, and pure hydration create lasting skin harmony.
+          </p>
+          <button type="button" class="blog-read-link article-open-btn" data-article="9">Read Article &rarr;</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Article Reading Modal -->
+  <div class="blog-modal" id="article-modal" aria-hidden="true" role="dialog">
+    <div class="blog-modal-content">
+      <button type="button" class="blog-modal-close" id="modal-close-btn" aria-label="Close Article">&times;</button>
+      <div id="modal-article-body" class="blog-body-text">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-wrap">
+          <a href="../index.html" class="brand-logo-link" style="margin-bottom: 1rem;">
+            <img src="../assets/images/logo.png" alt="Mittika Naturals Logo" class="footer-logo" width="58" height="58">
+            <div class="brand-logo-text">
+              <span class="brand-name" style="color: #FAF7F2;">mittika</span>
+              <span class="brand-tagline">NATURALS &trade;</span>
+            </div>
+          </a>
+          <p class="footer-desc">
+            Thoughtfully crafted skincare inspired by earth-derived clays and botanical beauty rituals. Rooted in nature, made in India.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="../index.html" class="footer-link">Home</a></li>
+            <li><a href="../about/index.html" class="footer-link">About Us</a></li>
+            <li><a href="../product/index.html" class="footer-link">Our Product</a></li>
+            <li><a href="../ingredients/index.html" class="footer-link">Ingredients</a></li>
+            <li><a href="../how-to-use/index.html" class="footer-link">How to Use</a></li>
+            <li><a href="./index.html" class="footer-link">Blog &amp; Journal</a></li>
+            <li><a href="../faq/index.html" class="footer-link">FAQ</a></li>
+            <li><a href="../contact/index.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Our Product</h4>
+          <ul class="footer-links-list">
+            <li><a href="../product/index.html" class="footer-link">4 Clay Detox Face Mask</a></li>
+            <li><a href="https://amzn.in/d/03YhWoWp" target="_blank" rel="noopener noreferrer" class="footer-link">Buy on Amazon</a></li>
+            <li><a href="https://wa.me/916239407139" target="_blank" rel="noopener noreferrer" class="footer-link">Order via WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Client Support</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+91 62394 07139 (WhatsApp)</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>support@mittikanaturals.in</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Mittika Naturals. All Rights Reserved. Crafted with care in India.</div>
+        <div class="footer-legal-links">
+          <a href="../privacy-policy/index.html">Privacy Policy</a>
+          <a href="../terms/index.html">Terms &amp; Conditions</a>
+          <a href="../disclaimer/index.html">Product Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/916239407139" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+    <span>Chat on WhatsApp</span>
+  </a>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Blog modal article content dictionary
+    const articles = {
+      '1': {
+        title: "Why Clay Masks Are a Timeless Skincare Ritual",
+        meta: "Rituals &bull; 4 min read",
+        content: `
+          <p>For centuries across the Indian subcontinent and across ancient civilisations, natural mud and clays have been treasured for their cleansing, balancing, and rejuvenating properties. Before synthetic cleansers and foaming agents existed, natural clays provided a gentle way to purify the skin.</p>
+          <h3>A Connection to the Earth</h3>
+          <p>Natural clays are formed over thousands of years through the natural weathering of mineral-rich volcanic ash and rocks. They possess a microscopic layered structure that naturally attracts surface debris, perspiration, and excess sebum.</p>
+          <p>Applying a freshly mixed clay paste is not simply a routine step; it is a mindful ritual that encourages you to slow down for ten minutes, breathe, and let the earth do its work.</p>
+        `
+      },
+      '2': {
+        title: "Multani Mitti: Understanding India's Traditional Clay",
+        meta: "Spotlight &bull; 5 min read",
+        content: `
+          <p>Multani Mitti, known worldwide as Fuller's Earth, has been an indispensable staple in Indian households for generations. Named historically after the Multan region where it was mined, this sedimentary clay is famed for its high absorption capacity.</p>
+          <h3>How It Works on the Skin</h3>
+          <p>Due to its high mineral concentration, Multani Mitti acts like a natural sponge. When mixed with water or rose water, it binds with excess surface oil and lifts impurities out of the pores as it sets, making it particularly beneficial for oily and congestion-prone complexions.</p>
+        `
+      },
+      '3': {
+        title: "Kaolin Clay Explained",
+        meta: "Mineral Science &bull; 4 min read",
+        content: `
+          <p>Kaolin, also known as China Clay, is one of the gentlest mineral clays known to cosmetic formulation. Composed primarily of kaolinite minerals, it has an exceptionally fine texture and a mild nature that makes it suitable for almost all skin types.</p>
+          <h3>Balancing the Formula</h3>
+          <p>While stronger clays focus aggressively on oil adsorption, Kaolin acts as a softening agent. It ensures the mask spreads smoothly, rinses off effortlessly, and leaves the skin feeling supple rather than tight.</p>
+        `
+      },
+      '4': {
+        title: "French Green Clay Explained",
+        meta: "Mineral Science &bull; 4 min read",
+        content: `
+          <p>French Green Clay, historically quarried in northern France, owes its pale green hue to a combination of iron oxides and decomposed plant matter such as kelp and marine algae.</p>
+          <h3>Rich Mineral Composition</h3>
+          <p>French Green Clay contains a wealth of beneficial elements including magnesium, calcium, silica, and potassium. It provides deep clarifying care, making it an ideal choice for refreshing tired and city-exposed skin.</p>
+        `
+      },
+      '5': {
+        title: "Rose Clay in Modern Skincare",
+        meta: "Texture &bull; 3 min read",
+        content: `
+          <p>Rose Clay is a gentle, naturally colored clay with a mild mineral balance. It provides gentle micro-exfoliation to slough away dead surface skin cells without harsh abrasiveness.</p>
+          <h3>Natural Radiance</h3>
+          <p>By refining the skin's surface texture and encouraging natural turnover, Rose Clay helps unveil a clearer, more luminous complexion.</p>
+        `
+      },
+      '6': {
+        title: "Why Combine Different Clays in One Face Mask?",
+        meta: "Formulation &bull; 4 min read",
+        content: `
+          <p>Single-clay masks often lean towards extremes: either very drying (like 100% Multani Mitti used alone) or very mild with minimal pore-clearing power (like pure Kaolin). By formulating with four complementary clays, Mittika Naturals achieves a balanced synergy that deeply purifies while keeping skin soft, comfortable, and refreshed.</p>
+        `
+      },
+      '7': {
+        title: "How Often Should You Use a Clay Mask?",
+        meta: "Guide &bull; 4 min read",
+        content: `
+          <p>For most skin types, 1 to 2 times a week is the ideal rhythm. Oily skin benefits from twice-weekly rituals mixed with rose water, while normal or dry skin thrives on a weekly ritual mixed with a drop of honey or milk cream.</p>
+        `
+      },
+      '8': {
+        title: "Understanding Botanical Ingredients in Skincare",
+        meta: "Botanicals &bull; 5 min read",
+        content: `
+          <p>Our formulation incorporates 10 supporting herbs: Neem, Tulsi, Turmeric, Orange Peel, Licorice (Mulethi), Sandalwood, Rose Petal, Colloidal Oatmeal, Aloe Vera Extract (200x), and Cucumber. These botanicals bring soothing aromatics, antioxidants, and gentle moisture balance to the mineral foundation.</p>
+        `
+      },
+      '9': {
+        title: "A Simple Natural Skincare Routine",
+        meta: "Routine &bull; 3 min read",
+        content: `
+          <p>Effective skincare does not require an overwhelming 10-step regimen. A clean morning cleanse, sun protection, an evening rinse, and our 10-minute 4-Clay ritual twice a week provides everything your skin needs to remain balanced, clear, and healthy.</p>
+        `
+      }
+    };
+
+    const modal = document.getElementById('article-modal');
+    const modalBody = document.getElementById('modal-article-body');
+    const closeBtn = document.getElementById('modal-close-btn');
+
+    document.querySelectorAll('.article-open-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-article');
+        const art = articles[id];
+        if (art) {
+          modalBody.innerHTML = `
+            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.5rem;">${art.meta}</div>
+            <h2 class="serif-heading" style="font-size: 1.85rem; margin-bottom: 1.5rem; color: var(--earth-deep);">${art.title}</h2>
+            ${art.content}
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--earth-border); text-align: center;">
+              <a href="../product/index.html" class="btn btn-primary btn-sm">Experience the 4-Clay Mask</a>
+            </div>
+          `;
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
